@@ -3,7 +3,6 @@ use std::borrow::Borrow;
 /// A munger which XORs a key with some data
 #[derive(Clone)]
 pub struct Xorcism<'a> {
-    key: &'a [u8],
     it: std::iter::Cycle<std::slice::Iter<'a, u8>>,
 }
 
@@ -12,9 +11,8 @@ impl<'a> Xorcism<'a> {
     ///
     /// Should accept anything which has a cheap conversion to a byte slice.
     pub fn new<Key: AsRef<[u8]> + ?Sized>(key: &'a Key) -> Xorcism<'a> {
-        let key = key.as_ref();
-        let it = key.iter().cycle();
-        Xorcism { key, it }
+        let it = key.as_ref().iter().cycle();
+        Xorcism { it }
     }
     /// XOR each byte of the input buffer with a byte from the key.
     ///

@@ -24,7 +24,7 @@ pub mod graph {
                     self
                 }
 
-                pub fn attr<'a>(&'a self, key: &str) -> Option<&str> {
+                pub fn attr(&self, key: &str) -> Option<&str> {
                     Some(self.attrs.get(key)?)
                 }
             }
@@ -55,7 +55,7 @@ pub mod graph {
                     self
                 }
 
-                pub fn attr<'a>(&'a self, key: &str) -> Option<&str> {
+                pub fn attr(&self, key: &str) -> Option<&str> {
                     Some(self.attrs.get(key)?)
                 }
             }
@@ -98,7 +98,7 @@ pub mod graph {
             self.nodes.iter().find(|&node| node.label == label).cloned()
         }
 
-        pub fn attr<'a>(&'a self, key: &str) -> Option<&str> {
+        pub fn attr(&self, key: &str) -> Option<&str> {
             Some(self.attrs.get(key)?)
         }
     }

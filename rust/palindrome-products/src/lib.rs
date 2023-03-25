@@ -83,11 +83,9 @@ impl Iterator for DecreasingProducts {
 
 pub fn palindrome_products(min: u64, max: u64) -> Option<(Palindrome, Palindrome)> {
     let smallest = IncreasingProducts::new(min, max)
-        .into_iter()
         .flat_map(Palindrome::new)
         .next();
     let largest = DecreasingProducts::new(min, max)
-        .into_iter()
         .flat_map(Palindrome::new)
         .next();
     smallest.zip(largest)

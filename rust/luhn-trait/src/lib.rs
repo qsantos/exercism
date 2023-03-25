@@ -14,7 +14,7 @@ impl<T: Display> Luhn for T {
             if c == b' ' {
                 continue;
             }
-            if !(b'0'..=b'9').contains(&c) {
+            if !c.is_ascii_digit() {
                 return false;
             }
             let mut v = c - b'0';

@@ -55,7 +55,7 @@ impl<'a> Problem<'a> {
     ) -> Option<HashMap<char, u8>> {
         let index = digit_of_letter.len();
         if let Some(letter) = self.letters.get(index) {
-            let start = self.leading_letters.contains(&letter).into();
+            let start = self.leading_letters.contains(letter).into();
             for digit in start..=9 {
                 let pattern = 1u32 << digit;
                 if used_digits & pattern != 0 {

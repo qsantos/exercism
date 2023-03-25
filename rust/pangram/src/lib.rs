@@ -5,7 +5,7 @@ pub fn is_pangram(sentence: &str) -> bool {
     let s: HashSet<char> = sentence
         .to_lowercase()
         .chars()
-        .filter(|c| ('a'..='z').contains(c))
+        .filter(|c| c.is_ascii_lowercase())
         .collect();
     s.len() == 26
 }

@@ -37,7 +37,7 @@ fn aux(dominoes: &[(u8, u8)], chain: &mut Vec<Domino>, mut unused: u64) -> bool 
 }
 
 pub fn chain(dominoes: &[Domino]) -> Option<Vec<Domino>> {
-    if dominoes.len() == 0 {
+    if dominoes.is_empty() {
         return Some(vec![]);
     }
     assert!(dominoes.len() < 64);

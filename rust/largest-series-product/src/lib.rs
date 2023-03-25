@@ -11,7 +11,7 @@ pub fn lsp(string_digits: &str, span: usize) -> Result<u64, Error> {
         return Err(Error::SpanTooLong);
     }
     for c in string_digits.chars() {
-        if !('0'..='9').contains(&c) {
+        if !c.is_ascii_digit() {
             return Err(Error::InvalidDigit(c));
         }
     }
